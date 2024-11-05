@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import PredictPipeline
 from src.data.custom_data import CustomData
-
+import os
 application=Flask(__name__)
 
 app=application
@@ -14,7 +14,7 @@ app=application
 
 @app.route('/')
 def index():
-    return render_template('index.html') 
+    return render_template('index.html') # '<h1>Welcome to the home page</h1>' 
 
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
@@ -31,10 +31,11 @@ def predict_datapoint():
             writing_score=float(request.form.get('reading_score'))
 
         )
+        print("aaaaaaaaaaaaaaaaaaaaa")
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
         print("Before Prediction")
-
+        
         predict_pipeline=PredictPipeline()
         print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
@@ -43,5 +44,7 @@ def predict_datapoint():
     
 
 if __name__=="__main__":
+    base_dir = os.getcwd()
+    print(f"base_dir = {base_dir}")
+    os.chdir(base_dir)
     app.run(host="0.0.0.0")        
-
