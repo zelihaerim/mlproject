@@ -19,9 +19,9 @@ def get_requirements(file_path:str)->List[str]:
 setup(
 name='mlproject',
 version='0.0.1',
-author='zelihaerim',
+author='zerim',
 author_email='zerim@gtu.edu.tr',
-packages=find_packages(),  # tüm alt klasörlerdeki Python paketlerini (içinde __init__.py dosyası bulunan klasörler) otomatik olarak bulur ve dahil eder.
+packages=find_packages(),
 install_requires=get_requirements('requirements.txt')
 
 )
