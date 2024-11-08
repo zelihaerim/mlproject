@@ -58,7 +58,6 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 def load_object(file_path):
     try:
         with open(file_path, "rb") as file_obj:
-            print(f"file_path .......... ", file_path)
             return pickle.load(file_obj)
 
     except Exception as e:

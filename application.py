@@ -6,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import PredictPipeline
 from src.data.custom_data import CustomData
 import os
-
 application=Flask(__name__)
 
 app=application
@@ -47,4 +46,4 @@ if __name__=="__main__":
     print(f"base_dir = {base_dir}")
     os.chdir(base_dir)
     print(f"base_dir: {base_dir}")
-    app.run(host="0.0.0.0", debug=True)        
+    app.run(host="0.0.0.0")        
